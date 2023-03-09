@@ -83,7 +83,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tinggiEditText"
         app:layout_constraintTop_toBottomOf="@+id/tinggiEditText">
-        
+
         <RadioButton
             android:id="@+id/priaRadioButton"
             android:layout_width="wrap_content"
