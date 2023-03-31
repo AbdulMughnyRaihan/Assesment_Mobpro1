@@ -2,24 +2,23 @@ package org.d3if0114_mobpro1
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import org.d3if0114_mobpro1.databinding.ListItemBinding
 
-class MainAdapter(private val data: List<Hewan>) :
-    RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter(private val stok: List<Stok>) :
+    RecyclerView.Adapter<MainAdapter.ViewHolder>(), Filterable {
+
+    private var filteredPeople: List<Stok> = stok
 
     class ViewHolder(private val binding: ListItemBinding):
     RecyclerView.ViewHolder(binding.root) {
-        fun bind(hewan: Hewan) = with(binding) {
-            namaTextView.text = hewan.nama
-            latinTextView.text = hewan.namaLatin
-            imageView.setImageResource(hewan.imageResId)
-
-            root.setOnClickListener {
-                val message = root.context.getString(R.string.message, hewan.nama)
-                Toast.makeText(root.context, message, Toast.LENGTH_LONG).show()
-            }
+        fun bind(stok: Stok) = with(binding) {
+            namabarang.text = stok.namabarang
+            codebarang.text = stok.codebarang
+            image.setImageResource(stok.image)
+            jumlahbarang.text = stok.jumlahbarang.toString()
         }
     }
 
@@ -31,10 +30,31 @@ class MainAdapter(private val data: List<Hewan>) :
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(stok[position])
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return stok.size
+    }
+
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val query = constraint.toString()
+                filteredPeople = if (query.isEmpty()) {
+                    stok
+                } else {
+                    stok.filter { it.namabarang.contains(query, ignoreCase = true) }
+                }
+                val filterResults = FilterResults()
+                filterResults.values = filteredPeople
+                return filterResults
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                filteredPeople = results?.values as List<Stok>
+                notifyDataSetChanged()
+            }
+        }
     }
 }

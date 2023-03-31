@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Galeri Hewan</string>
+    <string name="app_name">Stok Barang</string>
     <string name="message">%1$s diklik!</string>
+    <string name="cari_barang">Cari Barang</string>
+    <string name="btn_cari">Cari</string>
+    <string name="stok">Stok: </string>
 </resources>
