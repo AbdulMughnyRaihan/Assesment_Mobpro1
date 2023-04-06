@@ -8,7 +8,7 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     private val hewan = listOf("Ayam", "Bebek", "Domba", "Kambing", "Sapi")
-    private var index=0
+    private var index=0 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
