@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.button.setOnClickListener { hitungBmi() }
+        viewModel.getHasilBmi().observe(this, { showResult(it) })
     }
 
     private fun hitungBmi() {
@@ -42,12 +43,11 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.gender_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val result = viewModel.hitungBmi(
+            viewModel.hitungBmi(
             berat.toFloat(),
             tinggi.toFloat(),
             selectedId == R.id.priaRadioButton
         )
-        showResult(result)
     }
 
 
@@ -59,7 +59,8 @@ class MainActivity : AppCompatActivity() {
         }
         return getString(stringRes)
     }
-    private fun showResult(result: HasilBmi) {
+    private fun showResult(result: HasilBmi?) {
+        if (result == null) return
         binding.bmiTextView.text = getString(R.string.bmi_x, result.bmi)
         binding.kategoriTextView.text = getString(R.string.kategori_x,
             getKategoriLabel(result.kategori))
