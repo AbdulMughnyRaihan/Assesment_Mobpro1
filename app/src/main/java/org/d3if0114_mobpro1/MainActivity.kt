@@ -66,4 +66,4 @@ class MainActivity : AppCompatActivity() {
             getKategoriLabel(result.kategori))
     }
 
-}
+} 
