@@ -1,1 +1,3 @@
-# Assesment 2 Mobpro
+nim 6706210114 
+nama Abdul Mughny Raihan
+aplikasi MyKalkulatorCinta
