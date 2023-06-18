@@ -19,6 +19,7 @@ Kalkulator hubungan ini digunakan untuk membuktikan cinta dan persahabatan Anda.
     <string name="hapus">Hapus</string>
     <string name="batal">Batal</string>
     <string name="bagikan">bagikan</string>
+    <string name="message">%1$s diklik!</string>
     <string name="kumpulan_couple_goals">Kumpulan Couple Goals</string>
     <string name="no_data_available">Data Kosong</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem.</string>

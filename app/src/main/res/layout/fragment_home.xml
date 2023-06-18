@@ -170,22 +170,24 @@
             android:id="@+id/switch_dark_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="112dp"
             android:minHeight="48dp"
             android:text="Mode Gelap"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.524"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/shareButton" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="198dp"
-            android:layout_height="152dp"
-            android:src="@drawable/logoapp"
+        <Button
+            android:id="@+id/btnPasangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Daftar Pasangan Hit"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.546"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayoutCardQuotes" />
+            app:layout_constraintTop_toBottomOf="@+id/shareButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

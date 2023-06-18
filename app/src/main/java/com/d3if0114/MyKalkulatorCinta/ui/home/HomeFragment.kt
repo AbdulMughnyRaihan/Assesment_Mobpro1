@@ -13,6 +13,7 @@ import com.d3if0114.MyKalkulatorCinta.R
 import com.d3if0114.MyKalkulatorCinta.databinding.FragmentHomeBinding
 import com.d3if0114.MyKalkulatorCinta.db.InputDb
 import com.d3if0114.MyKalkulatorCinta.model.Output
+import com.d3if0114.MyKalkulatorCinta.ui.Pasangan.PasanganActivity
 
 class HomeFragment: Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -28,10 +29,14 @@ class HomeFragment: Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         setHasOptionsMenu(true)
         return binding.root
+
     }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.generateHasilButton.setOnClickListener { generateHasil() }
+        binding.btnPasangan.setOnClickListener { lanjutPasangan() }
         binding.shareButton.setOnClickListener{ shareData() }
         viewModel.getHasil().observe(requireActivity(), { showResult(it) })
         binding.switchDarkMode.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -43,12 +48,18 @@ class HomeFragment: Fragment() {
         }
 
     }
+    private fun lanjutPasangan() {
+        val lanjut = Intent(requireContext(), PasanganActivity::class.java)
+        startActivity(lanjut)
+    }
 
+    @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.options_menu, menu)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.menu_about -> {
